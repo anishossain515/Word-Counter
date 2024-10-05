@@ -7,6 +7,7 @@ function WordCounter() {
     const [timeLeft , setTimeLeft] = useState(60)//Initial time 60s
     const [IsActive,setIsActive] = useState(false)
     const [IsAnimating , setIsAnimating] =useState(false)//handel animation
+    const [SaveCountNumber , setSaveCountNumber] = useState(0)
  
     //Live Word Counting
     const CountWords = ()=>{
@@ -14,13 +15,14 @@ function WordCounter() {
       const WordCount = text .split(/\s+/).filter(word => word.length > 0)
 
       SetCountNumber(WordCount.length)
+      setSaveCountNumber(WordCount.length)
     }
 
 
     //start Counting
     const StartCount = ()=>{
       setIsActive(true)
-      setTimeLeft(60)
+      setTimeLeft(10)
       SetCountNumber(0)
    }
 
@@ -77,7 +79,12 @@ function WordCounter() {
 
       </div>
 
-      <p className='text-xl'>Number Of Type : <span className='bg-[#f8f9fa] px-5 py-1.5 font-semibold rounded-md border border-black'>{CountNumber}</span></p> {/* total counting word */}
+     <div className='flex flex-row items-center justify-between gap-5'>
+
+     <p className='text-xl'>Number Of Type : <span className='bg-[#f8f9fa] px-5 py-1.5 font-semibold rounded-md border border-black'>{CountNumber}</span></p> {/* total counting word */}
+     <p className='text-xl'>Previous Record : <span className=' font-semibold '>{SaveCountNumber}</span></p> {/* total counting word */}
+
+     </div>
 
      </div>
     </>
