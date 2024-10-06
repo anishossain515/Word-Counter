@@ -22,7 +22,7 @@ function WordCounter() {
     //start Counting
     const StartCount = ()=>{
       setIsActive(true)
-      setTimeLeft(10)
+      setTimeLeft(60)
       SetCountNumber(0)
    }
 
@@ -92,3 +92,5 @@ function WordCounter() {
 }
 
 export default WordCounter;
+
+
